@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: ikuskcj1b-java-springboot
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ikuskcj1b-java-springboot 
+  name: ikuskcj1b-java-springboot
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: ikuskcj1b-java-springboot
+    weight: 100 
